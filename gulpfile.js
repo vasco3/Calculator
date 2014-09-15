@@ -15,7 +15,7 @@ var uglify = require('gulp-uglify');
 var clientRoot = 'client';
 
 gulp.task('clean', function (cb) {
-    del(['static'], cb);
+    del(['public'], cb);
 });
 
 var entryPoints = [clientRoot + '/main.js'];
@@ -23,18 +23,13 @@ var entryPoints = [clientRoot + '/main.js'];
 gulp.task('sass', ['clean'], function () {
     gulp.src(clientRoot + '/main.scss')
         .pipe(sass())
-        .pipe(gulp.dest('static'));
-});
-
-gulp.task('images', ['clean'], function () {
-    gulp.src([clientRoot + '/onboarding/img/**/*'])
-        .pipe(gulp.dest('static/onboarding/img/'));
+        .pipe(gulp.dest('public'));
 });
 
 
 gulp.task('html', ['clean'], function () {
     gulp.src([clientRoot + '/index.html'])
-        .pipe(gulp.dest('static'));
+        .pipe(gulp.dest('public'));
 });
 
 gulp.task('scripts', ['clean'], function () {
@@ -47,7 +42,7 @@ gulp.task('scripts', ['clean'], function () {
                 debug: false
             }))
             .pipe(uglify())
-            .pipe(gulp.dest('static'));
+            .pipe(gulp.dest('public'));
     } else {
         gulp.src(entryPoints, { read: false })
             .pipe(browserify({
@@ -56,9 +51,9 @@ gulp.task('scripts', ['clean'], function () {
                 extensions: ['.jsx'],
                 debug: true
             }))
-            .pipe(gulp.dest('static'));
+            .pipe(gulp.dest('public'));
     }
 });
 
-gulp.task('default', ['sass', 'scripts', 'images', 'html']);
+gulp.task('default', ['sass', 'scripts', 'html']);
 

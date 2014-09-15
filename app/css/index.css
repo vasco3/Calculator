@@ -4,22 +4,11 @@ body {
   color: rgb(153, 153, 153);
 }
 
-.container {
-  position: relative;
-  float: left;
-  z-index: 0;
-  width: 46%;
-  height: 333px;
-  margin: 83px 0 0 16.83073%;
-  border-right: 5px solid rgb(179, 179, 179);
-  border-bottom: 5px solid rgb(128, 128, 128);
-  background-color: rgb(216, 216, 216);
-}
-
-._button {
+.btn {
   display: block;
   position: relative;
   float: left;
+  border-right: 3px solid rgb(0, 0, 0);
   border-radius: 3px;
   background-color: rgb(51, 51, 51);
   font-size: 1em;
@@ -29,131 +18,149 @@ body {
   color: rgb(153, 153, 153);
 }
 
-._input {
-  display: block;
-  position: relative;
-  float: left;
+.btn:active {
+  border-right-width: 0;
+  border-right-style: none;
+}
+
+.btn-add {
+  z-index: 7;
+  width: 11.3553113553%;
+  height: 82px;
+  margin: -32px 0 0 3.6658653846%;
+}
+
+.btn-divide {
+  z-index: 12;
+  width: 11.36%;
+  height: 33px;
+  margin: 20px 0 0 3.5828754578%;
+}
+
+.btn-dot {
   clear: both;
   z-index: 1;
-  width: 32.4%;
+  width: 11.36%;
+  height: 33px;
+  margin: 16px 0 0 14.7607600732%;
+}
+
+.btn-eight {
+  z-index: 4;
+  width: 11.36%;
+  height: 33px;
+  margin: 16px 0 0 3.7345467032%;
+}
+
+.btn-equal {
+  z-index: 2;
+  width: 11.36%;
+  height: 33px;
+  margin: 16px 0 0 3.588598901%;
+}
+
+.btn-five {
+  z-index: 9;
+  width: 11.36%;
+  height: 33px;
+  margin: 17px 0 0 3.6229395604%;
+}
+
+.btn-four {
+  clear: both;
+  z-index: 10;
+  width: 11.36%;
+  height: 33px;
+  margin: 17px 0 0 14.7607600732%;
+}
+
+.btn-multiply {
+  z-index: 11;
+  width: 11.36%;
+  height: 33px;
+  margin: 20px 0 0 3.588598901%;
+}
+
+.btn-nine {
+  z-index: 3;
+  width: 11.1721611721%;
+  height: 33px;
+  margin: 16px 0 0 3.6229395604%;
+}
+
+.btn-one {
+  clear: both;
+  z-index: 15;
+  width: 11.3553113553%;
+  height: 33px;
+  margin: 20px 0 0 14.7922390109%;
+}
+
+.btn-seven {
+  clear: both;
+  z-index: 5;
+  width: 11.36%;
+  height: 33px;
+  margin: 16px 0 0 14.7607600732%;
+}
+
+.btn-six {
+  z-index: 8;
+  width: 11.1721611721%;
+  height: 33px;
+  margin: 17px 0 0 3.5542582417%;
+}
+
+.btn-subtract {
+  z-index: 6;
+  width: 11.3553113553%;
+  height: 82px;
+  margin: -34px 0 0 3.5056089743%;
+}
+
+.btn-three {
+  z-index: 13;
+  width: 11.36%;
+  height: 33px;
+  margin: 20px 0 0 3.588598901%;
+}
+
+.btn-two {
+  z-index: 14;
+  width: 11.36%;
+  height: 33px;
+  margin: 20px 0 0 3.5571199633%;
+}
+
+.btn-zero {
+  z-index: 0;
+  width: 11.36%;
+  height: 33px;
+  margin: 16px 0 0 3.5542582417%;
+}
+
+.container {
+  float: left;
+  width: 46%;
+  height: 333px;
+  margin: 99px 0 0 23.5989583333%;
+  border-width: 1px 5px 5px 1px;
+  border-color: rgb(210, 210, 210) rgb(179, 179, 179) rgb(128, 128, 128) rgb(210, 210, 210);
+  border-style: solid;
+  border-top-left-radius: 2px;
+  background-color: rgb(216, 216, 216);
+}
+
+.display {
+  display: block;
+  float: left;
+  width: 71.2454212454%;
   height: 45px;
-  margin: -294px 0 0 23.59896%;
+  margin: 37px 0 0 14.79224%;
   padding: 0 10px;
   background-color: rgb(242, 242, 242);
   font-size: 2.063em;
   font-weight: 400;
   line-height: 1;
   color: rgb(0, 140, 203);
-}
-
-._button-1 {
-  z-index: 2;
-  width: 5.1999999999%;
-  height: 33px;
-  margin: -220px 0 0 23.59896%;
-}
-
-._button-10 {
-  z-index: 14;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -171px 0 0 50.79948%;
-}
-
-._button-11 {
-  z-index: 8;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -122px 0 0 23.59896%;
-}
-
-._button-12 {
-  z-index: 9;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -122px 0 0 30.39974%;
-}
-
-._button-13 {
-  z-index: 10;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -122px 0 0 37.1992199999%;
-}
-
-._button-14 {
-  z-index: 15;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -76px 0 0 23.59896%;
-}
-
-._button-15 {
-  z-index: 17;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -76px 0 0 30.39974%;
-}
-
-._button-16 {
-  z-index: 16;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -76px 0 0 37.1992199999%;
-}
-
-._button-2 {
-  z-index: 3;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -220px 0 0 30.39974%;
-}
-
-._button-3 {
-  z-index: 4;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -220px 0 0 37.1992199999%;
-}
-
-._button-4 {
-  z-index: 11;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -220px 0 0 44%;
-}
-
-._button-5 {
-  z-index: 12;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -220px 0 0 50.79948%;
-}
-
-._button-6 {
-  z-index: 5;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -171px 0 0 23.59896%;
-}
-
-._button-7 {
-  z-index: 6;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -171px 0 0 30.39974%;
-}
-
-._button-8 {
-  z-index: 7;
-  width: 5.19921875%;
-  height: 33px;
-  margin: -171px 0 0 37.1992199999%;
-}
-
-._button-9 {
-  z-index: 13;
-  width: 5.1666666666%;
-  height: 82px;
-  margin: -171px 0 0 44%;
 }
