@@ -3,7 +3,7 @@
 var browserify = require('gulp-browserify');
 var del = require('del');
 // var debug = require('gulp-debug');
-var envify = require('envify');
+// var envify = require('envify');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 // var jsdoc = require('gulp-jsdoc');
@@ -12,23 +12,22 @@ var gutil = require('gulp-util');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
-var clientRoot = 'client';
+var appRoot = 'app';
 
 gulp.task('clean', function (cb) {
     del(['public'], cb);
 });
 
-var entryPoints = [clientRoot + '/main.js'];
+var entryPoints = [appRoot + '/scripts/main.js'];
 
 gulp.task('sass', ['clean'], function () {
-    gulp.src(clientRoot + '/main.scss')
+    gulp.src(appRoot + '/styles/main.scss')
         .pipe(sass())
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('public/'));
 });
 
-
 gulp.task('html', ['clean'], function () {
-    gulp.src([clientRoot + '/index.html'])
+    gulp.src([appRoot + '/index.html'])
         .pipe(gulp.dest('public'));
 });
 
