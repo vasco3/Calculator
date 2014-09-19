@@ -4,7 +4,7 @@
   "description": "Arithmetic calculator",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "gulp-sass": "^0.7.3",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
+    "jest-cli": "^0.1.18",
     "reactify": "^0.14.0"
   },
   "dependencies": {
