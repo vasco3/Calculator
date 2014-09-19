@@ -8,10 +8,11 @@ var NumberInput = React.createClass({
 
 	render: function() {
 		return (
-		    <input className="display js-js-display" placeholder="5" type="text" />
+		    <input className="display js-js-display" 
+		    	placeholder="0" type="text" />
 		);
 	}
-
+	
 });
 
 module.exports = NumberInput;
