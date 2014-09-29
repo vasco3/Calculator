@@ -5,7 +5,7 @@
  'use strict'
 
 var React = require('react/addons');
-var Calculator = require('./calculator');
+var Calculator = require('./components/calculator');
 
 window.React = React;
 React.initializeTouchEvents(true);
