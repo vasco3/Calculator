@@ -2,10 +2,13 @@
  * @jsx React.DOM
  */
 
-'use strict'
+'use strict';
 
 var React = require('react');
+
 var NumberInput = require('./number-input');
+var ButtonDigit = require('./button-digit');
+var ButtonOperation = require('./button-operation');
 
 var Calculator = React.createClass({
 
@@ -13,24 +16,24 @@ var Calculator = React.createClass({
 		var equalSymbol = '=';
 		
 		return (
-			<div className="container calculator clearfix js-calculator">
-				<NumberInput />
-			    <button className="btn btn-one js-1">1</button>
-			    <button className="btn btn-two js-2">2</button>
-			    <button className="btn btn-three js-3">3</button>
-			    <button className="btn btn-divide js-divide">/</button>
-			    <button className="btn btn-multiply js-multiply">x</button>
-			    <button className="btn btn-four js-4">4</button>
-			    <button className="btn btn-five js-5">5</button>
-			    <button className="btn btn-six js-6">6</button>
-			    <button className="btn btn-seven js-7">7</button>
-			    <button className="btn btn-eight js-8">8</button>
-			    <button className="btn btn-nine js-9">9</button>
-			    <button className="btn btn-add js-add">+</button>
-			    <button className="btn btn-subtract js-subract">-</button>
-			    <button className="btn btn-dot js-dot">.</button>
-			    <button className="btn btn-zero js-0">0</button>
-			    <button className="btn btn-equal js-equal">{equalSymbol}</button>
+			<div className="container calculator clearfix">
+				<NumberInput defaultValue="0" />
+				<ButtonDigit text="1" />
+				<ButtonDigit text="2" />
+				<ButtonDigit text="3" />
+				<ButtonOperation text="/" />
+				<ButtonOperation text="x" />
+				<ButtonDigit text="4" />
+				<ButtonDigit text="5" />
+				<ButtonDigit text="6" />
+				<ButtonDigit text="7" />
+				<ButtonDigit text="8" />
+				<ButtonDigit text="9" />
+				<ButtonOperation text="+" />
+				<ButtonOperation text="-" />
+				<ButtonDigit text="." />
+				<ButtonDigit text="0" />
+				<ButtonOperation text="="/>
 			</div>
 		);
 	}
