@@ -1,6 +1,44 @@
+jest.dontMock('../../constants/Constants');
+jest.dontMock('../Store');
+jest.dontMock('react/lib/merge');
+
+function sum () {
+	return 4 + 2;
+}
+
+describe('Store', function () {
+	var Constants = require('../../constants/Constants');
+
+	var actionInsertDigit = {
+		source: 'VIEW_ACTION',
+		action: {
+			actionType: Constants.CALCULATOR_SUBTRACT,
+			number: '5'
+		} 
+	};
+
+	var AppDispatcher,
+	    Store,
+	    callback;
+
+	beforeEach(function () {
+		AppDispatcher = require('../../dispatchers/AppDispatcher');
+		Store = require('../Store');
+		callback = AppDispatcher.register.mock.calls[0][0];
+	});
+
+	it('should update screen with new number', function () {
+		expect(sum()).toBe(6);
+	});
+
+
+
+
+});
+
 /*
 	TESTS
-	onDigit click '5' _numbers should be 
+	
 
 		var _numbers = {
 			storedNumber: '',

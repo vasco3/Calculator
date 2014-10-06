@@ -11,7 +11,7 @@ var CHANGE_EVENT = 'change';
  * @type {Object}
  */
 var _numbers = {
-	storedNumber: '0',
+	storedNumber: '',
 	screenNumber: '', 
 	isScreenResult: false,
 	operationType:  null
@@ -19,14 +19,13 @@ var _numbers = {
 
 /*
 	on digit click 
-		if !operationType 
-			appendNumberToScreen(num)
-
-		if isScreenResult and or opType 
+		if isScreenResult and or operationType 
 			saveNumberToStore()
 			clearScreen()
 			appendNumberToScreen(num)
 
+		if !operationType 
+			appendNumberToScreen(num)
 
 	onOperation click
 		if !operationType 
@@ -42,12 +41,14 @@ var _numbers = {
 
 
  */
+
 var _numbers = {
-	storedNumber: '0',
-	screenNumber: '54', 
+	storedNumber: '54',
+	screenNumber: '4', 
 	isScreenResult: false,
-	operationType: null
+	operationType: '+'
 };
+
 /**
  * Concats digits to the input buffer
  * @param  {string} number
@@ -109,7 +110,7 @@ AppDispatcher.register(function (payload) {
 	var action = payload.action;
 
 	switch(action.actionType) {
-		case Constants.CALCULATOR_UPDATE_INPUT: 
+		case Constants.CALCULATOR_INSERT_DIGITS: 
 		updateInput(action.number);
 		break;
 

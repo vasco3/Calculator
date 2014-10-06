@@ -5,6 +5,6 @@ module.exports = keyMirror({
 	CALCULATOR_SUBTRACT: null,
 	CALCULATOR_MULTIPLY: null,
 	CALCULATOR_DIVIDE: null,
-	CALCULATOR_UPDATE_INPUT: null
+	CALCULATOR_INSERT_DIGITS: null
 });
 

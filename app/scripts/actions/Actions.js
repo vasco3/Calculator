@@ -43,9 +43,9 @@ var Actions = {
 	  * Update Input of numbers
 	  * @param {string} number 
 	  */
-	 updateInput: function (number) {
+	 insertDigits: function (number) {
 	 	AppDispatcher.handleViewAction({
-	 		actionType: Constants.CALCULATOR_UPDATE_INPUT,
+	 		actionType: Constants.CALCULATOR_INSERT_DIGITS,
 	 		number: number 
 	 	});
 	 }

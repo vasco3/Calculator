@@ -34,5 +34,8 @@
     "express": "^4.9.0",
     "flux": "^2.0.1",
     "react": "^0.11.1"
+  },
+  "jest": {
+    "rootDir": "./app/scripts"
   }
 }
