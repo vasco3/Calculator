@@ -6,6 +6,8 @@
 
 var React = require('react/addons');
 
+var Actions = require('../actions/Actions');
+
 var ButtonOperation = React.createClass({
 
 	render: function() {
@@ -23,8 +25,13 @@ var ButtonOperation = React.createClass({
 		});
 
 		return (
-		    <button type="button" className={classes}>{text}</button>
+		    <button type="button" onClick={this._onClick}
+		     className={classes}>{text}</button>
 		);
+	},
+
+	_onClick: function () {
+		this.props.onClick;
 	}
 });
 
