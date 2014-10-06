@@ -6,11 +6,13 @@
 
 var React = require('react/addons');
 
+var Actions = require('../actions/Actions');
+
 var ButtonDigit = React.createClass({
 
 	render: function() {
 		var cx = React.addons.classSet;
-		
+
 		var text = this.props.text;
 
 		var classes = cx({
@@ -30,8 +32,15 @@ var ButtonDigit = React.createClass({
 
 
 		return (
-		    <button button="button" className={classes}>{text}</button>
+		    <button onClick={this._onClick}
+			    button="button" className={classes}>{text}</button>
 		);
+	}, 
+
+	_onClick: function () {
+		var digit = this.props.text;
+
+		Actions.updateInput(digit);
 	}
 });
 
