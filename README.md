@@ -2,6 +2,15 @@
 
 ![Example of Calculator](https://dl.dropboxusercontent.com/u/37889923/github/calculator.png "Example of Calculator")
 
+## Description
+
+This is a calculator web app to perform sumple arithmetic operations such as: 
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
 ## Technology Stack
 
 - Flux
@@ -31,15 +40,6 @@ Open the app in your browser using localhost
 2. Click on the operator button ('+', '-', 'x', '/').
 3. Click on the second batch of digits.
 4. Click on the '=' sign.
-
-## Features
-
-This is a calculator web app to perform sumple arithmetic operations such as: 
-
-- Addition
-- Subtraction
-- Multiplication
-- Division
 
 ## Responsive Design
 
