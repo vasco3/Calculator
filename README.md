@@ -1,5 +1,7 @@
 # Simple Calculator using Flux & ReactJS
 
+![Example of Calculator](https://dl.dropboxusercontent.com/u/37889923/github/calculator.png "Example of Calculator")
+
 ## Technology Stack
 
 - Flux
