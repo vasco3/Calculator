@@ -40,7 +40,7 @@ var ButtonDigit = React.createClass({
 	_onClick: function () {
 		var digit = this.props.text;
 
-		Actions.updateInput(digit);
+		Actions.insertDigit(digit);
 	}
 });
 

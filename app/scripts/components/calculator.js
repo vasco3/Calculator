@@ -16,7 +16,7 @@ var Calculator = React.createClass({
 
 	getInitialState: function() {
 		return {
-			input: Store.get()
+			screenNumber: Store.get()
 		};
 	},
 
@@ -33,7 +33,7 @@ var Calculator = React.createClass({
 		
 		return (
 			<div className="container calculator clearfix">
-				<NumberInput value={this.state.input} />
+				<NumberInput value={this.state.screenNumber} />
 				<ButtonDigit text="1" />
 				<ButtonDigit text="2" />
 				<ButtonDigit text="3" />
@@ -49,14 +49,14 @@ var Calculator = React.createClass({
 				<ButtonOperation text="-" onClick={Actions.subtract}  />
 				<ButtonDigit text="." />
 				<ButtonDigit text="0" />
-				<ButtonOperation text="=" onClick={Actions.divide} />
+			<ButtonOperation text="=" onClick={Actions.equal} />
 			</div>
 		);
 	},
 
 	_onChange: function () {
 		this.setState({
-			input: Store.get() 
+			screenNumber: Store.get() 
 		});
 	}
 });

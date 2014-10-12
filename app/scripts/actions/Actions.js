@@ -39,13 +39,19 @@ var Actions = {
 	 	});
 	 },
 
+	 equal: function () {
+	 	AppDispatcher.handleViewAction({
+	 		actionType: Constants.CALCULATOR_EQUAL
+	 	});
+	 },
+
 	 /**
 	  * Update Input of numbers
 	  * @param {string} number 
 	  */
-	 insertDigits: function (number) {
+	 insertDigit: function (number) {
 	 	AppDispatcher.handleViewAction({
-	 		actionType: Constants.CALCULATOR_INSERT_DIGITS,
+	 		actionType: Constants.CALCULATOR_INSERT_DIGIT,
 	 		number: number 
 	 	});
 	 }

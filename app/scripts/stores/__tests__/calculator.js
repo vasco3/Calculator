@@ -1,10 +1,8 @@
+'use strict';
+
 jest.dontMock('../../constants/Constants');
 jest.dontMock('../Store');
 jest.dontMock('react/lib/merge');
-
-function sum () {
-	return 4 + 2;
-}
 
 describe('Store', function () {
 	var Constants = require('../../constants/Constants');
@@ -12,8 +10,36 @@ describe('Store', function () {
 	var actionInsertDigit = {
 		source: 'VIEW_ACTION',
 		action: {
-			actionType: Constants.CALCULATOR_SUBTRACT,
-			number: '5'
+			actionType: Constants.CALCULATOR_INSERT_DIGIT,
+			number: 'replace'
+		} 
+	};
+
+	var actionAdd = {
+		source: 'VIEW_ACTION',
+		action: {
+			actionType: Constants.CALCULATOR_ADD
+		} 
+	};
+
+	var actionSubtract = {
+		source: 'VIEW_ACTION',
+		action: {
+			actionType: Constants.CALCULATOR_SUBTRACT
+		} 
+	};
+
+	var actionMultiply = {
+		source: 'VIEW_ACTION',
+		action: {
+			actionType: Constants.CALCULATOR_MULTIPLY
+		} 
+	};
+
+	var actionDivide = {
+		source: 'VIEW_ACTION',
+		action: {
+			actionType: Constants.CALCULATOR_DIVIDE
 		} 
 	};
 
@@ -27,37 +53,54 @@ describe('Store', function () {
 		callback = AppDispatcher.register.mock.calls[0][0];
 	});
 
-	it('should update screen with new number', function () {
-		expect(sum()).toBe(6);
+	it('should register a callback with the dispatcher', function () {
+		expect(AppDispatcher.register.mock.calls.length).toBe(1);
 	});
 
+	it('should start with default values', function () {
+		var _numbers = {
+			storedNumber: '',
+			screenNumber: '', 
+			isScreenResult: false,
+			operationType: undefined 
+		};
 
-
-
-});
-
-/*
-	TESTS
+		expect(Store.getAll()).toEqual(_numbers);
+	});
 	
-
+	it('should update screen with new number', function () {
 		var _numbers = {
 			storedNumber: '',
 			screenNumber: '5', 
 			isScreenResult: false,
-			operationType:  null
+			operationType: undefined 
 		};
 
-	onDigit click '4' _numbers should be
+		actionInsertDigit.action.number = '5';
 
+		callback(actionInsertDigit);
+
+		expect(Store.getAll()).toEqual(_numbers);
+	});
+
+
+	it('should concat with new digit', function () {
 		var _numbers = {
 			storedNumber: '',
 			screenNumber: '54', 
 			isScreenResult: false,
-			operationType:  null
+			operationType: undefined 
 		};
 
-	onOperation click '+' _numbers should be
+		actionInsertDigit.action.number = '5';
+		callback(actionInsertDigit);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
 
+		expect(Store.getAll()).toEqual(_numbers);
+	});
+
+	it('should on Operation click + ', function () {
 		var _numbers = {
 			storedNumber: '',
 			screenNumber: '54', 
@@ -65,8 +108,16 @@ describe('Store', function () {
 			operationType: '+'
 		};
 
-	onDigit click '4' _numbers should be 
+		actionInsertDigit.action.number = '5';
+		callback(actionInsertDigit);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
+		callback(actionAdd);
 
+		expect(Store.getAll()).toEqual(_numbers);
+	});
+
+	it('should clicking in 4 add ', function () {
 		var _numbers = {
 			storedNumber: '54',
 			screenNumber: '4', 
@@ -74,6 +125,43 @@ describe('Store', function () {
 			operationType: '+'
 		};
 
+		actionInsertDigit.action.number = '5';
+		callback(actionInsertDigit);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
+		callback(actionAdd);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
+
+		expect(Store.getAll()).toEqual(_numbers);
+	});
+
+	it('should add another digit', function () {
+		var _numbers = {
+			storedNumber: '54',
+			screenNumber: '40', 
+			isScreenResult: false,
+			operationType: '+'
+		};
+
+		actionInsertDigit.action.number = '5';
+		callback(actionInsertDigit);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
+		callback(actionAdd);
+		actionInsertDigit.action.number = '4';
+		callback(actionInsertDigit);
+		actionInsertDigit.action.number = '0';
+		callback(actionInsertDigit);
+
+		expect(Store.getAll()).toEqual(_numbers);
+	});
+
+});
+
+/*
+	TESTS
+	
 	onOperation click '=' _numbers should be 
 
 		var _numbers = {

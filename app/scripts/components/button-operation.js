@@ -31,7 +31,7 @@ var ButtonOperation = React.createClass({
 	},
 
 	_onClick: function () {
-		this.props.onClick;
+		this.props.onClick();
 	}
 });
 

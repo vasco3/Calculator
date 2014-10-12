@@ -14,39 +14,7 @@ var _numbers = {
 	storedNumber: '',
 	screenNumber: '', 
 	isScreenResult: false,
-	operationType:  null
-};
-
-/*
-	on digit click 
-		if isScreenResult and or operationType 
-			saveNumberToStore()
-			clearScreen()
-			appendNumberToScreen(num)
-
-		if !operationType 
-			appendNumberToScreen(num)
-
-	onOperation click
-		if !operationType 
-			setOperationType(o)
-
-		if operationType
-			applies operationType to stored and screenNumber
-			saves result in 
-
-			changes the operation constant in _numbers
-			then it looks for the operationType
-
-
-
- */
-
-var _numbers = {
-	storedNumber: '54',
-	screenNumber: '4', 
-	isScreenResult: false,
-	operationType: '+'
+	operationType: undefined 
 };
 
 /**
@@ -70,9 +38,35 @@ function setOperationType (operationType) {
 }
 
 function add () {
-	var result = _numbers.input + _numbers.buffer;
+	var num1 = Number(_numbers.storedNumber),
+		num2 = Number(_numbers.screenNumber);
 
-	updateInput(result);
+	return num1 + num2;
+}
+
+function subtract () {
+	var num1 = Number(_numbers.storedNumber),
+		num2 = Number(_numbers.screenNumber);
+
+	return num1 - num2;
+}
+
+function multiply () {
+	var num1 = Number(_numbers.storedNumber),
+		num2 = Number(_numbers.screenNumber);
+
+	return num1 * num2;
+}
+
+function divide () {
+	var num1 = Number(_numbers.storedNumber),
+		num2 = Number(_numbers.screenNumber);
+
+	return num1 / num2;
+}
+
+function resetStoredNumber () {
+	_numbers.storedNumber = '';
 }
 
 /**
@@ -84,7 +78,11 @@ var Store = merge(EventEmitter.prototype, {
 	 * @return {string}
 	 */
 	get: function () {
-		return _numbers.input;
+		return _numbers.screenNumber;
+	},
+
+	getAll: function () {
+		return _numbers;
 	},
 
 	emitChange: function () {
@@ -106,13 +104,72 @@ var Store = merge(EventEmitter.prototype, {
 	}
 });
 
+
+/*
+	on digit click 
+		if isScreenResult and or operationType 
+			saveNumberToStore()
+			clearScreen()
+			appendNumberToScreen(num)
+
+		if !operationType 
+			appendNumberToScreen(num)
+
+	onOperation click
+		if !operationType 
+			setOperationType(o)
+
+		if operationType
+			applies operationType to stored and screenNumber
+			saves result in 
+
+			changes the operation constant in _numbers
+			then it looks for the operationType
+
+ */
+
 AppDispatcher.register(function (payload) {
 	var action = payload.action;
 
 	switch(action.actionType) {
-		case Constants.CALCULATOR_INSERT_DIGITS: 
-		updateInput(action.number);
-		break;
+		case Constants.CALCULATOR_INSERT_DIGIT: 
+			if (!_numbers.stored) {
+				if (_numbers.operationType) {
+					saveNumberToStore();
+					clearScreen();
+				}
+			}
+
+			appendNumberToScreen(action.number);
+			break;
+
+		case Constants.CALCULATOR_ADD: 
+			setOperationType(add);
+			break;
+
+		case Constants.CALCULATOR_SUBTRACT: 
+			setOperationType(subtract);
+			break;
+
+		case Constants.CALCULATOR_MULTIPLY: 
+			setOperationType(multiply);
+			break;
+
+		case Constants.CALCULATOR_DIVIDE: 
+			setOperationType(divide);
+			break;
+			
+		case Constants.CALCULATOR_EQUAL: 
+			var result = _numbers.operationType();
+			
+			clearScreen();
+			
+			appendNumberToScreen(result);
+			
+			resetStoredNumber();
+			
+			setOperationType(undefined);
+			break;
 
 		default:
 		return true;
