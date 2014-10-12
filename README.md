@@ -1,4 +1,4 @@
-# Simple Calculator in Flux & ReactJS
+# Simple Calculator using Flux & ReactJS
 
 ## Technology Stack
 
