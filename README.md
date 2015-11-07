@@ -1,5 +1,7 @@
 # Simple Calculator using Flux & ReactJS
 
+**PROJECT STATUS** This projbect was only to try out React Flux. It is incomplete in it's calculator logic. Won't finish since the sole purpose of learning Flux was already accomplished.
+
 ![Example of Calculator](https://dl.dropboxusercontent.com/u/37889923/github/calculator.png "Example of Calculator")
 
 ## Description
